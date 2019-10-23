@@ -144,7 +144,7 @@ days.forEach((day, index) => {
     day.setAttribute("aria-current", "date");
 
     let span = document.createElement("span");
-    span.innerHTML = today.getDate() + "." + today.getMonth() + ".";
+    span.innerHTML = today.getDate() + "." + (today.getMonth() + 1) + ".";
 
     day.querySelector("textarea").setAttribute("autofocus", true);
     day.querySelector(".heading").append(span);
