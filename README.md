@@ -35,7 +35,7 @@ There's no support. You are on your own :)
 There's no license. Do what ever you want with it.
 
 ## Author
-Bastian Allgeier
-<https://bastianallgeier.com>
-<https://getkirby.com>
-<bastian@getkirby.com>
+Bastian Allgeier  
+<https://bastianallgeier.com>   
+<https://getkirby.com>    
+<bastian@getkirby.com>   
