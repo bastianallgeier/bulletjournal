@@ -10,8 +10,9 @@
 }
 
 :root {
+  color-scheme: light dark;
   --color-background: #fff;
-  --color-day-background:  rgba(0,0,0, .075);
+  --color-day-background: rgba(0,0,0, .075);
   --color-day-border: var(--color-background);
   --color-day-text: #000;
   --color-focus: rgba(34, 144, 255, .5);
@@ -20,6 +21,18 @@
   --color-today-text: #000;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #222;
+    --color-day-background: rgba(255,255,255, .075);
+    --color-day-border: var(--color-background);
+    --color-day-text: #ddd;
+    --color-focus: rgba(34, 144, 255, .5);
+    --color-today-background: rgba(253, 226, 144, .5);
+    --color-today-border: rgba(255,255,255, .5);
+    --color-today-text: #fff;
+  }
+}
 body {
   font-family: sans-serif;
   display: flex;
@@ -84,6 +97,7 @@ textarea {
   font: inherit;
   padding: .5rem;
   line-height: 1.5em;
+  color: var(--color-day-text);
 }
 
 textarea:focus {
