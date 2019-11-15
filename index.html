@@ -151,20 +151,29 @@ document.addEventListener("keydown", e => {
   }
 });
 
-// add current date
-days.forEach((day, index) => {
+function hightlightCurrentDay() {
+  if (document.visibilityState != 'visible') { return; }
 
-  if (index === today.getDay() - 1) {
-    day.setAttribute("aria-current", "date");
+  days.forEach((day, index) => {
+    //remove existing date-span(s) first, so on re-runs new spans do not get appended all the time
+    var existingSpan = day.querySelector(".heading > span");
+    if (existingSpan != null) { existingSpan.remove() }
 
-    let span = document.createElement("span");
-    span.innerHTML = today.getDate() + "." + (today.getMonth() + 1) + ".";
+    if (index === today.getDay() - 1) {
+      day.setAttribute("aria-current", "date");
 
-    day.querySelector("textarea").setAttribute("autofocus", true);
-    day.querySelector(".heading").append(span);
-  }
+      let span = document.createElement("span");
+      span.innerHTML = today.getDate() + "." + (today.getMonth() + 1) + ".";
 
-});
+      day.querySelector("textarea").setAttribute("autofocus", true);
+      day.querySelector(".heading").append(span);
+    }
+
+  });
+}
+
+hightlightCurrentDay();
+document.addEventListener('visibilitychange', hightlightCurrentDay);
 
 // handle note-taking
 notes.forEach(note => {
