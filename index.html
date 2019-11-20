@@ -129,7 +129,6 @@ textarea:focus {
 <script>
 const days  = Array.from(document.querySelectorAll(".day"));
 const notes = Array.from(document.querySelectorAll("textarea"));
-const today = new Date();
 
 document.addEventListener("keydown", e => {
   if (e.metaKey === true && e.key === "s") {
@@ -139,6 +138,8 @@ document.addEventListener("keydown", e => {
 
 function hightlightCurrentDay() {
   if (document.visibilityState != 'visible') { return; }
+
+  var today = new Date();
 
   days.forEach((day, index) => {
     //remove existing date-span(s) first, so on re-runs new spans do not get appended all the time
