@@ -156,21 +156,29 @@ function hightlightCurrentDay() {
   var today = new Date();
 
   days.forEach((day, index) => {
-    //remove existing date-span(s) first, so on re-runs new spans do not get appended all the time
-    var existingSpan = day.querySelector(".heading > span");
-    if (existingSpan != null) { existingSpan.remove() }
-
+    unhighlightDay(day);
     if (index === today.getDay() - 1) {
-      day.setAttribute("aria-current", "date");
-
-      let span = document.createElement("span");
-      span.innerHTML = today.getDate() + "." + (today.getMonth() + 1) + ".";
-
-      day.querySelector("textarea").setAttribute("autofocus", true);
-      day.querySelector(".heading").append(span);
+      highlightDay(day, today.getDate() + "." + (today.getMonth() + 1) + ".");
     }
-
   });
+}
+
+function highlightDay(day, dateString) {
+  day.setAttribute("aria-current", "date");
+
+  let span = document.createElement("span");
+  span.innerHTML = dateString;
+
+  day.querySelector("textarea").setAttribute("autofocus", true);
+  day.querySelector("textarea").focus();
+  day.querySelector(".heading").append(span);
+}
+
+function unhighlightDay(day) {
+  day.removeAttribute("aria-current");
+  day.querySelector("textarea").removeAttribute("autofocus");
+  let existingSpan = day.querySelector(".heading > span");
+  if (existingSpan != null) { existingSpan.remove() }
 }
 
 hightlightCurrentDay();
