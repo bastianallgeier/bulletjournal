@@ -45,7 +45,7 @@ body {
 .plan {
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
   grid-template-rows: 66% auto;
   grid-gap: .5rem;
   flex-basis: 100%;
@@ -61,6 +61,11 @@ body {
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: .05em;
+}
+
+.heading span {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .notes {
