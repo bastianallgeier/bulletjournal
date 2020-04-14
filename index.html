@@ -201,4 +201,8 @@ notes.forEach(note => {
     localStorage.setItem(id, note.value);
   });
 });
+
+if (navigator.serviceWorker && !navigator.serviceWorker.controller) {
+  navigator.serviceWorker.register('/serviceworker.js');
+}
 </script>
